@@ -17,9 +17,9 @@ bird = pygame.image.load("image/bird.png")
 bird = pygame.transform.scale(bird, (30, 30))
 
 # bgm seting
-bgm = pygame.mixer.Sound("font & bgm/bgm.wav")     # bgm 불러오기
-bgm.set_volume(0.2)     # 소리 크기 설정
-bgm.play(-1)            # 무한 반복
+bgm = pygame.mixer.Sound("font & bgm/bgm.wav")     # define bgm
+bgm.set_volume(0.1)     # config sound volume
+bgm.play(-1)            # loop
 
 # color vars
 BLACK = (0, 0, 0)
