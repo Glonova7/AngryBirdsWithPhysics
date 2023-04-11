@@ -121,7 +121,7 @@ while running:
     screen.blit(set_val, (10,10))
     screen.blit(show_angle, (10,40))
     screen.blit(show_V0, (10,70))
-    
+     
     screen.blit(axis, (screen_width-250,screen_height-140))
     screen.blit(dist, (screen_width-250,screen_height-110))
     screen.blit(degree, (screen_width-250,screen_height-80))
