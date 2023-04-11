@@ -2,10 +2,10 @@ import pygame
 import math as m
 import time
 
-# 초기화
+# initializing
 pygame.init()
 
-# 창 설정
+# screen setting 
 screen_width = 1000
 screen_height = 600
 screen = pygame.display.set_mode((screen_width, screen_height))
@@ -19,7 +19,7 @@ bird = pygame.transform.scale(bird, (30, 30))
 
 
 
-# 색상 변수
+# color vars
 BLACK = (0, 0, 0)
 WHITE = (255, 255, 255)
 RED = (255, 0, 0)
@@ -29,7 +29,7 @@ hit_pos = []
 stop = False
 
 
-# 물체를 그리는 함수
+# drawing object
 def draw_object(calc,trail):
     axis = calc[0]
     screen.blit(bird, axis)
@@ -55,15 +55,15 @@ def draw_object(calc,trail):
             pygame.draw.line(screen, RED, trail[i-1], trail[i], 2)
 
 
-# 초기값
+# initial value
 sec = 0
 v0 = 90
-angle = 55
+angle = 50
 start_pos = (50, screen_height-(150))
 g = 9.8
 
 
-# 물체 위치 계산 함수
+# calculating data
 def calc(t):
     global start_pos, v0, angle, sec, stop
 
@@ -87,7 +87,7 @@ def calc(t):
 start_time = time.time()
 running = True
 while running:
-    # 이벤트 처리
+    # processing events
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False
@@ -95,19 +95,19 @@ while running:
     if len(trail) > 300:
         trail.pop(0)
 
-    # 시간
+    # time set
     sec = (time.time() - start_time) * 2
     seconds = int(sec)
     time.sleep(0.001)
     
-    # 화면 업데이트
+    # updating screen
     screen.fill(WHITE)
     screen.blit(bg, (0,0))
 
     data = calc(sec)
     draw_object(data, trail)
  
-    # 데이터 랜딩
+    # rending data
     font = pygame.font.Font('font/GodoM.ttf',20)
     set_val = font.render(f'Setting Value:', True, (255,255,255))
     axis = font.render(f'(x,y) : ({str(round(data[0][0]))},{str((screen_height - round(data[0][1])))})', True, (0,0,0))
@@ -117,7 +117,7 @@ while running:
     show_V0 = font.render(f'v0 : {str(v0)}', True, (0,0,0))
     dist = font.render(f'(R, H, T_H) : ({str(round(data[3][2]))}, {str(round(data[3][0]))}, {round((data[3][1]/2),1)}s)', True, (0,0,0))
     
-    # 화면 표시
+    # display on screen
     screen.blit(set_val, (10,10))
     screen.blit(show_angle, (10,40))
     screen.blit(show_V0, (10,70))
@@ -128,15 +128,15 @@ while running:
     screen.blit(v, (screen_width-250,screen_height-50))
    
 
-    # 시간 업데이트
+    # updating time
     
 
-    # 화면 업데이트
+    # updating screen
     pygame.display.update()
     
-    # 0.02초 대기
+    # wait for 0.02's
     pygame.time.wait(20)
 
 
-# 종료
+
 pygame.quit()

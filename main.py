@@ -2,10 +2,10 @@ import pygame
 import math as m
 import time
 
-# 초기화
+# initializing
 pygame.init()
 
-# 창 설정
+# screen setting 
 screen_width = 1000
 screen_height = 600
 screen = pygame.display.set_mode((screen_width, screen_height))
@@ -18,7 +18,7 @@ bird = pygame.transform.scale(bird, (30, 30))
 
 
 
-# 색상 변수
+# color vars
 BLACK = (0, 0, 0)
 WHITE = (255, 255, 255)
 RED = (255, 0, 0)
@@ -29,7 +29,7 @@ hit_pos = []
 bugfix = True
 
 
-# 물체를 그리는 함수
+# drawing object
 def draw_object(calc,trail):
     axis = calc[0]
     screen.blit(bird, axis)
@@ -53,7 +53,7 @@ def draw_object(calc,trail):
             pygame.draw.line(screen, RED, trail[i-1], trail[i], 2)
 
 
-# 초기 설정 값
+# initial value
 sec = 0
 v0 = 0
 angle = 0
@@ -67,7 +67,7 @@ pos2_y = 0  # 마우스 홀딩 풀때 y 좌표
 F = 0 # 새총 당기는 힘
 
 
-# 물체 위치 계산 함수
+# calculating data
 def calc(t):
     global start_pos, v0, angle, sec
 
@@ -95,7 +95,7 @@ def calc(t):
 bugfix = True
 running = True
 while running:
-    # 이벤트 처리
+    # processing events
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False
@@ -105,7 +105,7 @@ while running:
 
     
     
-    # 화면 업데이트
+    # updating screen
     screen.fill(WHITE)
     screen.blit(bg, (0,0))
     
@@ -152,14 +152,14 @@ while running:
         
     if angle != 0: 
         
-        # 시간      
+        # set time      
         sec = (time.time() - start_time) * 2
         seconds = int(sec)
         time.sleep(0.001)
-        draw_object(data, trail) # 포물선 메인 함수
+        draw_object(data, trail) # main func
         
     
-    # 데이터 랜딩
+    # rending data
     font = pygame.font.Font('font/GodoM.ttf',20)
 
     #timer = font.render(f't : {round(sec * 0.5, 1)}', True, (0,0,0))
@@ -185,11 +185,11 @@ while running:
     
     
 
-    # 화면 업데이트
+    # updating screen
     pygame.display.update()
     
-    # 0.02초 대기
+    # wait for 0.02's
     pygame.time.wait(20)
 
-# 종료
+
 pygame.quit()
