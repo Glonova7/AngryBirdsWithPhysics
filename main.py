@@ -41,7 +41,7 @@ def draw_object(calc,trail):
     highest = font.render(f'MAX(x,y) : ({round(highest_point[0])},{round(highest_point[1])})', True, (0,0,0))
 
     arrow = pygame.image.load("image/arrow.png")
-    arrow = pygame.transform.scale(arrow, (30, 35))
+    arrow = pygame.transform.scale(arrow, (25, 20))
     arrow = pygame.transform.rotate(arrow,calc[2])
     screen.blit(arrow, (screen_width-210,screen_height-85))
     trail.append(axis)
