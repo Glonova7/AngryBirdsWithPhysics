@@ -60,11 +60,11 @@ angle = 0
 start_pos = (50, screen_height-(150)) 
 g = 9.8
 
-pos1_x = 0  # 마우스 첫 클릭시 x 좌표
-pos1_y = 0  # 마우스 첫 클릭시 y 좌표
-pos2_x = 0  # 마우스 홀딩 풀때 x 좌표
-pos2_y = 0  # 마우스 홀딩 풀때 y 좌표
-F = 0 # 새총 당기는 힘
+pos1_x = 0  # x pos when first mouse click
+pos1_y = 0  # y pos when first mouse click
+pos2_x = 0  # x pos when relaeses mouse holdong
+pos2_y = 0  # y pos when relaeses mouse holdong
+F = 0 # pulling force
 
 
 # calculating data
