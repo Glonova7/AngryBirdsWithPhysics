@@ -16,7 +16,10 @@ bg = pygame.transform.scale(bg, (screen_width, screen_height))
 bird = pygame.image.load("image/bird.png")
 bird = pygame.transform.scale(bird, (30, 30))
 
-
+# bgm seting
+bgm = pygame.mixer.Sound("font & bgm/bgm.wav")     # bgm 불러오기
+bgm.set_volume(0.2)     # 소리 크기 설정
+bgm.play(-1)            # 무한 반복
 
 # color vars
 BLACK = (0, 0, 0)
@@ -160,7 +163,7 @@ while running:
         
     
     # rending data
-    font = pygame.font.Font('font/GodoM.ttf',20)
+    font = pygame.font.Font('font & bgm/GodoM.ttf',20)
 
     #timer = font.render(f't : {round(sec * 0.5, 1)}', True, (0,0,0))
     set_val = font.render(f'Setting Value:', True, (255,255,255))
